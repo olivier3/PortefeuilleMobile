@@ -1,4 +1,4 @@
-package com.cstjean.portefeuille
+package cstjean.mobile.ecole
 
 import org.junit.Test
 
