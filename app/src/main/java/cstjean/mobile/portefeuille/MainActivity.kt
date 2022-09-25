@@ -1,4 +1,4 @@
-package cstjean.mobile.ecole
+package cstjean.mobile.portefeuille
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

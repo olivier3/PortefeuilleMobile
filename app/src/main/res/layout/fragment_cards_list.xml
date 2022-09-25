@@ -5,4 +5,5 @@
     android:id="@+id/travaux_recycler_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:listitem="@layout/list_item_travail" />
+    android:padding="20dp"
+    tools:listitem="@layout/list_item_card" />

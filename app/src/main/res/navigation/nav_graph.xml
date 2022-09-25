@@ -7,7 +7,7 @@
     app:startDestination="@id/travauxListFragment">
     <fragment
         android:id="@+id/travauxListFragment"
-        android:name="cstjean.mobile.ecole.TravauxListFragment"
+        android:name="cstjean.mobile.portefeuille.TravauxListFragment"
         android:label="TravauxListFragment"
         tools:layout="@layout/fragment_travaux_list">
     <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/travailFragment"
-        android:name="cstjean.mobile.ecole.TravailFragment"
+        android:name="cstjean.mobile.portefeuille.TravailFragment"
         android:label="TravailFragment"
         tools:layout="@layout/fragment_travail" >
         <argument
@@ -28,7 +28,7 @@
     </fragment>
     <dialog
         android:id="@+id/datePickerFragment"
-        android:name="cstjean.mobile.ecole.DatePickerFragment"
+        android:name="cstjean.mobile.portefeuille.DatePickerFragment"
         android:label="DatePickerFragment">
         <argument
             android:name="travailDateRemise"
