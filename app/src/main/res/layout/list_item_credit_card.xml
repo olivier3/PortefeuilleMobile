@@ -17,7 +17,7 @@
         tools:text="OWNER" />
 
     <TextView
-        android:id="@+id/card_4digits"
+        android:id="@+id/card_digits"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="12sp"
@@ -26,11 +26,11 @@
         tools:text="1234" />
 
     <ImageView
-        android:id="@+id/type_card"
+        android:id="@+id/card_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/card_4digits"
+        app:layout_constraintBottom_toTopOf="@+id/card_digits"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/card_4digits"
+        app:layout_constraintTop_toTopOf="@+id/card_digits"
         app:srcCompat="@drawable/ic_baseline_credit_card_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,34 +4,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/travauxListFragment">
+    app:startDestination="@id/creditCardsListFragment">
     <fragment
-        android:id="@+id/travauxListFragment"
-        android:name="cstjean.mobile.portefeuille.TravauxListFragment"
-        android:label="TravauxListFragment"
-        tools:layout="@layout/fragment_travaux_list">
+        android:id="@+id/creditCardsListFragment"
+        android:name="cstjean.mobile.portefeuille.CreditCardsListFragment"
+        android:label="CreditCardsListFragment"
+        tools:layout="@layout/fragment_cards_list">
     <action
         android:id="@+id/show_travail_detail"
-        app:destination="@id/travailFragment" />
+        app:destination="@id/creditCardFragment" />
     </fragment>
     <fragment
-        android:id="@+id/travailFragment"
-        android:name="cstjean.mobile.portefeuille.TravailFragment"
-        android:label="TravailFragment"
-        tools:layout="@layout/fragment_travail" >
+        android:id="@+id/creditCardFragment"
+        android:name="cstjean.mobile.portefeuille.CreditCardFragment"
+        android:label="CreditCardFragment"
+        tools:layout="@layout/fragment_credit_card" >
         <argument
         android:name="travailId"
         app:argType="java.util.UUID" />
-        <action
-            android:id="@+id/select_date_remise"
-            app:destination="@id/datePickerFragment" />
     </fragment>
-    <dialog
-        android:id="@+id/datePickerFragment"
-        android:name="cstjean.mobile.portefeuille.DatePickerFragment"
-        android:label="DatePickerFragment">
-        <argument
-            android:name="travailDateRemise"
-            app:argType="java.util.Date" />
-    </dialog>
 </navigation>

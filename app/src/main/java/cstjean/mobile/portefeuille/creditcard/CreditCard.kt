@@ -1,4 +1,4 @@
-package cstjean.mobile.portefeuille.travail
+package cstjean.mobile.portefeuille.creditcard
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

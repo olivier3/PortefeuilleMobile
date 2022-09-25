@@ -19,7 +19,7 @@
         android:inputType="text" />
 
     <EditText
-        android:id="@+id/card_number"
+        android:id="@+id/card_numbers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/card_number_hint"
@@ -34,7 +34,7 @@
 
 
     <Button
-        android:id="@+id/card_4digits"
+        android:id="@+id/card_digits"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
