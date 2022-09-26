@@ -11,7 +11,7 @@
         android:label="CreditCardsListFragment"
         tools:layout="@layout/fragment_cards_list">
     <action
-        android:id="@+id/show_travail_detail"
+        android:id="@+id/show_credit_card_detail"
         app:destination="@id/creditCardFragment" />
     </fragment>
     <fragment
@@ -20,7 +20,7 @@
         android:label="CreditCardFragment"
         tools:layout="@layout/fragment_credit_card" >
         <argument
-        android:name="travailId"
+        android:name="creditCardId"
         app:argType="java.util.UUID" />
     </fragment>
 </navigation>
