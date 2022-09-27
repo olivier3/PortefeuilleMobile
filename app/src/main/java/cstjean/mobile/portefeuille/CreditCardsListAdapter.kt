@@ -59,6 +59,7 @@ class CreditCardHolder(private val binding: ListItemCreditCardBinding) :
         binding.cardDigits.text = creditCards.cardNumbers.toString()
         binding.cardExpirationDate.text = creditCards.expDate.toString()
 
+
         binding.root.setOnClickListener {
             onCreditCardClicked(creditCards.id)
         }

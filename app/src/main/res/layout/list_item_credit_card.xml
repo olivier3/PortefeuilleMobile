@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
+    android:padding="10dp"
     android:layout_width="match_parent"
     android:layout_height="250dp">
 
@@ -40,7 +41,7 @@
         app:layout_constraintStart_toStartOf="@+id/card_owner"
         app:layout_constraintTop_toBottomOf="@+id/card_digits"
         app:layout_constraintVertical_bias="0.018"
-        tools:text="Date d'expiration: 12/34" />
+        tools:text="Expiration: 12/34" />
 
     <ImageView
         android:id="@+id/card_type"
