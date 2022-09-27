@@ -30,16 +30,16 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/card_owner"
-        app:layout_constraintTop_toBottomOf="@+id/card_owner"
-        tools:text="1234" />
+        app:layout_constraintStart_toStartOf="@+id/card_digits"
+        app:layout_constraintTop_toBottomOf="@+id/card_digits"
+        tools:text="Date" />
 
     <ImageView
         android:id="@+id/card_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/card_digits"
+        app:layout_constraintBottom_toBottomOf="@+id/card_digits"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/card_digits"
+        app:layout_constraintTop_toBottomOf="@+id/card_owner"
         app:srcCompat="@drawable/ic_baseline_credit_card_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>

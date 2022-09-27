@@ -4,12 +4,18 @@ import android.content.Context
 import androidx.room.Room
 import cstjean.mobile.portefeuille.creditcard.CreditCard
 import cstjean.mobile.portefeuille.database.CreditCardDatabase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.launch
 import java.util.UUID
 
 private const val DATABASE_NAME = "credit-card-database"
 
-class CreditCardRepository private constructor(context: Context) {
+class CreditCardRepository private constructor(
+    context: Context,
+    private val coroutineScope: CoroutineScope = GlobalScope
+) {
     private val database: CreditCardDatabase = Room
         .databaseBuilder(
             context.applicationContext,
@@ -25,6 +31,12 @@ class CreditCardRepository private constructor(context: Context) {
         database.creditCardDao().addCreditCard(creditCard)
     }
 
+    fun updateCreditCard(creditCard: CreditCard) {
+        coroutineScope.launch {
+            database.creditCardDao().updateCreditCard(creditCard)
+        }
+    }
+
     companion object {
         private var INSTANCE: CreditCardRepository? = null
         fun initialize(context: Context) {
@@ -34,8 +46,8 @@ class CreditCardRepository private constructor(context: Context) {
         }
 
         fun get(): CreditCardRepository {
-            return INSTANCE ?:
-            throw IllegalStateException("CreditCardRepository doit être initialisé.")
+            return INSTANCE
+                ?: throw IllegalStateException("CreditCardRepository doit être initialisé.")
         }
     }
 }
