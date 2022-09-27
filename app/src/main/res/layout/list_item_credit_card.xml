@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="250dp">
 
     <TextView
         android:id="@+id/card_owner"
@@ -14,32 +14,55 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="OWNER" />
+        tools:text="Bank icon" />
 
     <TextView
         android:id="@+id/card_digits"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="12sp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/card_owner"
         app:layout_constraintTop_toBottomOf="@+id/card_owner"
-        tools:text="1234" />
+        app:layout_constraintVertical_bias="0.587"
+        tools:text="**** **** **** 1234" />
 
     <TextView
         android:id="@+id/card_expiration_date"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="12sp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.449"
         app:layout_constraintStart_toStartOf="@+id/card_owner"
-        app:layout_constraintTop_toBottomOf="@+id/card_owner"
-        tools:text="1234" />
+        app:layout_constraintTop_toBottomOf="@+id/card_digits"
+        app:layout_constraintVertical_bias="0.018"
+        tools:text="Date d'expiration: 12/34" />
 
     <ImageView
         android:id="@+id/card_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/card_digits"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/card_digits"
-        app:srcCompat="@drawable/ic_baseline_credit_card_24" />
+        app:layout_constraintVertical_bias="0.96"
+        app:srcCompat="@drawable/mastercard_svgrepo_com" />
+
+    <ImageView
+        android:id="@+id/card_chip"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.171"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32"
+        app:srcCompat="@drawable/sim_card_chip_svgrepo_com" />
 </androidx.constraintlayout.widget.ConstraintLayout>
