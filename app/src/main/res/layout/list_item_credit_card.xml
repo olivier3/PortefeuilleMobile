@@ -65,4 +65,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.32"
         app:srcCompat="@drawable/sim_card_chip_svgrepo_com" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
