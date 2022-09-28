@@ -2,7 +2,6 @@
     <string name="app_name">Portefeuille</string>
     <string name="card_owner_hint">Entrez le détenteur</string>
     <string name="travail_nom_label">Détails de la carte</string>
-    <string name="travail_ajouter">Ajouter une carte</string>
     <string name="card_number_hint">1233455465657676</string>
     <string name="card_expiry_date">09/23</string>
 </resources>

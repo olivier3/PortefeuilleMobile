@@ -29,18 +29,17 @@ class CreditCardsListViewModel : ViewModel() {
     }
 
     suspend fun loadCreditCards() {
-        /*val faker = Faker()
+        val faker = Faker()
         // Données de tests
         for (i in 0 until 1) {
             val creditCard = CreditCard(
                 UUID.randomUUID(),
                 faker.name.name(),
-                5684,
+                7868,
                 Date()
             )
-
             addCreditCard(creditCard)
-        }*/
+        }
     }
 
     suspend fun addCreditCard(creditCard: CreditCard) {

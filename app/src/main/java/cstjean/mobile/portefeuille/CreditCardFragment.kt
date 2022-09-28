@@ -50,6 +50,13 @@ class CreditCardFragment : Fragment() {
                     oldCreditCard.copy(nom = text.toString())
                 }
             }
+
+            cardNumbers.doOnTextChanged { text, _, _, _ ->
+                creditCardViewModel.updateCreditCard { oldCreditCard ->
+                    oldCreditCard.copy( cardNumbers = text.toString().toInt())
+                }
+            }
+
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
@@ -66,6 +73,14 @@ class CreditCardFragment : Fragment() {
             // Pour éviter une loop infinie avec le update
             if (cardOwner.text.toString() != creditCard.nom) {
                 cardOwner.setText(creditCard.nom)
+            }
+
+            if (cardNumbers.text.toString() != creditCard.cardNumbers.toString()) {
+                cardNumbers.setText(creditCard.cardNumbers.toString())
+            }
+
+            if (cardExpirationDate.text.toString() != creditCard.expDate.toString()) {
+                cardExpirationDate.setText(creditCard.expDate.toString())
             }
          }
     }
