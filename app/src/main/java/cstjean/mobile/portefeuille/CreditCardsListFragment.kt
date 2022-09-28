@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import cstjean.mobile.portefeuille.creditcard.CreditCard
 import cstjean.mobile.portefeuille.databinding.FragmentCardsListBinding
 import io.github.serpro69.kfaker.Faker
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.util.*
 
@@ -64,12 +63,8 @@ class CreditCardsListFragment : Fragment() {
                     R.id.new_card -> {
                         viewLifecycleOwner.lifecycleScope.launch {
                             val faker = Faker()
-                            val newCreditCard = CreditCard(
-                                UUID.randomUUID(),
-                                faker.name.name(),
-                                5689,
-                                Date()
-                            )
+
+                            val newCreditCard = creditCardsListViewModel.createCreditCard(faker)
                             creditCardsListViewModel.addCreditCard(newCreditCard)
                         }
                         true

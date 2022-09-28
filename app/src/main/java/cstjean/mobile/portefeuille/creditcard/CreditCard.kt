@@ -7,7 +7,7 @@ import java.util.*
 
 
 @Entity
-data class CreditCard(
+data class CreditCard constructor(
     @PrimaryKey val id: UUID,
     val nom: String,
     val cardNumbers: String,
