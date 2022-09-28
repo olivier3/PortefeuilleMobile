@@ -1,9 +1,9 @@
 package cstjean.mobile.portefeuille
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -11,9 +11,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import cstjean.mobile.portefeuille.creditcard.CreditCard
 import cstjean.mobile.portefeuille.databinding.FragmentCardsListBinding
+import io.github.serpro69.kfaker.Faker
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import java.util.*
 
 class CreditCardsListFragment : Fragment() {
     private var _binding: FragmentCardsListBinding? = null
@@ -50,6 +53,31 @@ class CreditCardsListFragment : Fragment() {
                 }
             }
         }
+        val menuHost: MenuHost = requireActivity()
+        menuHost.addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.fragment_cards_list, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return when (menuItem.itemId) {
+                    R.id.new_card -> {
+                        viewLifecycleOwner.lifecycleScope.launch {
+                            val faker = Faker()
+                            val newCreditCard = CreditCard(
+                                UUID.randomUUID(),
+                                faker.name.name(),
+                                5689,
+                                Date()
+                            )
+                            creditCardsListViewModel.addCreditCard(newCreditCard)
+                        }
+                        true
+                    }
+                    else -> false
+                }
+            }
+        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }
 
     /**

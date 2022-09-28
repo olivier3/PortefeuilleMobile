@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/nouveau_travail"
+        android:id="@+id/new_card"
         android:icon="@drawable/ic_menu_add"
         android:title="@string/travail_ajouter"
         app:showAsAction="ifRoom|withText" />
