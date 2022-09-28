@@ -53,10 +53,9 @@ class CreditCardFragment : Fragment() {
 
             cardNumbers.doOnTextChanged { text, _, _, _ ->
                 creditCardViewModel.updateCreditCard { oldCreditCard ->
-                    oldCreditCard.copy( cardNumbers = text.toString().toInt())
+                    oldCreditCard.copy( cardNumbers = text.toString())
                 }
             }
-
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
