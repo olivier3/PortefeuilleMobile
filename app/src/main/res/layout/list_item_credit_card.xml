@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:padding="10dp"
+    android:layout_marginBottom="20dp"
     android:layout_width="match_parent"
-    android:layout_height="250dp">
+    android:layout_height="200dp"
+    android:background="@drawable/card_background" >
 
     <TextView
         android:id="@+id/card_owner"
@@ -66,5 +68,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.32"
         app:srcCompat="@drawable/sim_card_chip_svgrepo_com" />
+
+    <ImageView
+        android:id="@+id/card_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@+id/card_owner"
+        app:layout_constraintTop_toTopOf="@+id/card_owner"
+        app:srcCompat="@drawable/ic_baseline_credit_card" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
