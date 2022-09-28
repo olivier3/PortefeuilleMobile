@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:padding="10dp"
+    android:layout_marginBottom="20dp"
     android:layout_width="match_parent"
-    android:layout_height="250dp">
+    android:layout_height="250dp"
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/card_owner"

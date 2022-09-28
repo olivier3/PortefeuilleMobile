@@ -10,9 +10,6 @@ import java.util.*
 data class CreditCard(
     @PrimaryKey val id: UUID,
     val nom: String,
-    val cardNumbers: Int,
-    val expDate: Date
-    ) {
-    val expDateFormatee
-        get() = DateFormat.format("EEEE, MM yy", expDate).toString()
-}
+    val cardNumbers: String,
+    val expDate: String
+    )

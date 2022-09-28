@@ -50,6 +50,8 @@ class CreditCardFragment : Fragment() {
                     oldCreditCard.copy(nom = text.toString())
                 }
             }
+
+
         }
 
         viewLifecycleOwner.lifecycleScope.launch {

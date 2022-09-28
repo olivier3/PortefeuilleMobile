@@ -20,7 +20,7 @@ class CreditCardsListViewModel : ViewModel() {
 
     init {
         viewModelScope.launch {
-            loadCreditCards()
+            // loadCreditCards()
 
             creditCardRepository.getCreditCards().collect {
                 _creditCards.value = it
@@ -30,14 +30,32 @@ class CreditCardsListViewModel : ViewModel() {
 
     suspend fun loadCreditCards() {
         val faker = Faker()
-        delay(5000)
+        val regex = "^.(4|5)[0-9]{3}-.*".toRegex()
+
         // Données de tests
-        for (i in 0 until 10) {
+        for (i in 0 until 6) {
+            val randomValue = (0..1).random()
+
+            val cardType = if (randomValue == 0) "visa" else "mastercard"
+
+            var type: String
+
+            while (true) {
+                 type = faker.finance.creditCard(cardType)
+                if (regex.containsMatchIn(type)) {
+                    type = type.drop(1).dropLast(1)
+                    break
+                }
+            }
+
+            val month = (1..12).random().toString()
+            val year = (2000..2050).random().toString()
+
             val creditCard = CreditCard(
                 UUID.randomUUID(),
                 faker.name.name(),
-                5555,
-                Date()
+                type,
+                "$month/$year"
             )
 
             addCreditCard(creditCard)

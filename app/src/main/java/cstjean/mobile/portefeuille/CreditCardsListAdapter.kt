@@ -56,9 +56,19 @@ class CreditCardHolder(private val binding: ListItemCreditCardBinding) :
      */
     fun bind(creditCards: CreditCard, onCreditCardClicked: (creditCardId: UUID) -> Unit) {
         binding.cardOwner.text = creditCards.nom
-        binding.cardDigits.text = creditCards.cardNumbers.toString()
-        binding.cardExpirationDate.text = creditCards.expDate.toString()
 
+
+        val lastDigit = creditCards.cardNumbers.substring(15)
+        val cardNumbers = "****-****-****-$lastDigit"
+        binding.cardDigits.text = cardNumbers
+
+        binding.cardExpirationDate.text = creditCards.expDate
+
+        if (creditCards.cardNumbers[0] == '4') {
+            binding.cardType.setImageResource(R.drawable.visa_svgrepo_com)
+        } else {
+            binding.cardType.setImageResource(R.drawable.mastercard_svgrepo_com)
+        }
 
         binding.root.setOnClickListener {
             onCreditCardClicked(creditCards.id)
