@@ -1,31 +1,30 @@
 package cstjean.mobile.portefeuille
 
-import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.qrcode.QRCodeWriter
 import cstjean.mobile.portefeuille.creditcard.CreditCard
 import cstjean.mobile.portefeuille.databinding.FragmentCreditCardBinding
 import kotlinx.coroutines.launch
-import java.util.*
 
+/**
+ * Fragment des détails d'une carte de crédit.
+ *
+ * @author Olivier Bilodeau et Laura Tram
+ */
 class CreditCardFragment : Fragment() {
     private var _binding: FragmentCreditCardBinding? = null
     private val binding

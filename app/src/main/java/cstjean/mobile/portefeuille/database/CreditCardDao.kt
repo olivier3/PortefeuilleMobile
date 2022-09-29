@@ -8,6 +8,11 @@ import cstjean.mobile.portefeuille.creditcard.CreditCard
 import kotlinx.coroutines.flow.Flow
 import java.util.UUID
 
+/**
+ * Interface des requêtes BD
+ *
+ * @author Olivier Bilodeau et Laura Tram
+ */
 @Dao
 interface CreditCardDao {
     @Query("SELECT * FROM creditcard")

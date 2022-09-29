@@ -1,5 +1,10 @@
 package cstjean.mobile.portefeuille
 
+/**
+ * Data class pour la création d'une carte format json
+ *
+ * @author Olivier Bilodeau et Laura Tram
+ */
 class CreditCardData(
     val nom: String,
     val carte: String,

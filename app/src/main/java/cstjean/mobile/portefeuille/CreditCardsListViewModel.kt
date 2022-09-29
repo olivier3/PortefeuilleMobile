@@ -10,6 +10,11 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import java.util.*
 
+/**
+ * ViewModel pour la liste des cartes de crédit.
+ *
+ * @author Olivier Bilodeau et Laura Tram
+ */
 class CreditCardsListViewModel : ViewModel() {
     private val creditCardRepository = CreditCardRepository.get()
     private val _creditCards: MutableStateFlow<List<CreditCard>> = MutableStateFlow(emptyList())
@@ -39,7 +44,7 @@ class CreditCardsListViewModel : ViewModel() {
 
     fun createCreditCard(faker: Faker): CreditCard {
 
-        val regex = "^.(4|5)[0-9]{3}-.*".toRegex()
+        val regex = "^.([45])[0-9]{3}-.*".toRegex()
         val randomValue = (0..1).random()
         val cardType = if (randomValue == 0) "visa" else "mastercard"
         var type: String

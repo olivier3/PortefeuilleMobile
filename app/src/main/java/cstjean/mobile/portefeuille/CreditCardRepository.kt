@@ -12,6 +12,11 @@ import java.util.UUID
 
 private const val DATABASE_NAME = "credit-card-database"
 
+/**
+ * Singleton pour la database.
+ *
+ * @author Olivier Bilodeau et Laura Tram
+ */
 class CreditCardRepository private constructor(
     context: Context,
     private val coroutineScope: CoroutineScope = GlobalScope

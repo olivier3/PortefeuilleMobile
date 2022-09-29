@@ -17,6 +17,11 @@ import io.github.serpro69.kfaker.Faker
 import kotlinx.coroutines.launch
 import java.util.*
 
+/**
+ * Fragment pour la liste des cartes de crédit.
+ *
+ * @author Olivier Bilodeau et Laura Tram
+ */
 class CreditCardsListFragment : Fragment() {
     private var _binding: FragmentCardsListBinding? = null
     private val binding

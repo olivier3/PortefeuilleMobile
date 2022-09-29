@@ -4,15 +4,18 @@ import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import cstjean.mobile.portefeuille.creditcard.CreditCard
 import cstjean.mobile.portefeuille.databinding.ListItemCreditCardBinding
 import java.time.LocalDate
-import java.time.LocalDateTime
-import java.util.UUID
+import java.util.*
 import kotlin.math.abs
 
+/**
+ * @property creditCards Liste des cartes de crédit à afficher.
+ *
+ * @author Olivier Bilodeau et Laura Tram
+ */
 class CreditCardsListAdapter(
     private val creditCards: List<CreditCard>,
     private val onCreditCardClicked: (creditCardId: UUID) -> Unit) :
@@ -57,14 +60,11 @@ class CreditCardHolder(private val binding: ListItemCreditCardBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
     /**
-     * On associe un travail à ce ViewHolder.
-     *
-     * @param travail Le travail associé.
+     * On associe une carte de crédit à ce ViewHolder.
      */
     @RequiresApi(Build.VERSION_CODES.O)
     fun bind(creditCards: CreditCard, onCreditCardClicked: (creditCardId: UUID) -> Unit) {
         binding.cardOwner.text = creditCards.nom
-
 
         val lastDigit = creditCards.cardNumbers.substring(15)
         val cardNumbers = "****-****-****-$lastDigit"
@@ -108,6 +108,11 @@ class CreditCardHolder(private val binding: ListItemCreditCardBinding) :
         }
     }
 
+    /**
+     * Valide la date d'expiration pour la conversion en Integer.
+     *
+     * @param creditCards Liste des cartes de crédit.
+     */
     fun validateDate(creditCards: CreditCard): Boolean {
         val regex = "^[0-9]+/[0-9]+".toRegex()
 
