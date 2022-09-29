@@ -23,7 +23,7 @@ class CreditCardsListViewModel : ViewModel() {
 
     init {
         viewModelScope.launch {
-            // loadCreditCards()
+            loadCreditCards()
 
             creditCardRepository.getCreditCards().collect {
                 _creditCards.value = it

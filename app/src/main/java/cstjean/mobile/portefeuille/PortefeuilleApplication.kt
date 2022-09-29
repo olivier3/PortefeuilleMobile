@@ -5,6 +5,6 @@ import android.app.Application
 class PortefeuilleApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        CreditCardRepository.initialize(this);
+        CreditCardRepository.initialize(this)
     }
 }

@@ -78,4 +78,14 @@
         app:layout_constraintTop_toTopOf="@+id/card_owner"
         app:srcCompat="@drawable/ic_baseline_credit_card" />
 
+    <ImageButton
+        android:id="@+id/delete_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_delete_forever"
+        android:contentDescription="@string/bouton_pour_delete_la_carte" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

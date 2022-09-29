@@ -49,16 +49,30 @@ class CreditCardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val cardOwnerRegex = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*\$".toRegex()
+        val cardNumberRegex = "([0-9]{4}-){3}[0-9]{3}L".toRegex()
+        val cardExpiryDateRegex = "^([1-9]|1[0-2])\\/?([0-9]{4})\$".toRegex()
+
         binding.apply {
             cardOwner.doOnTextChanged { text, _, _, _ ->
-                creditCardViewModel.updateCreditCard { oldCreditCard ->
-                    oldCreditCard.copy(nom = text.toString())
+                if (cardOwnerRegex.containsMatchIn(cardOwner.text)) {
+                    creditCardViewModel.updateCreditCard { oldCreditCard ->
+                        oldCreditCard.copy(nom = text.toString())
+                    }
                 }
             }
-
             cardNumbers.doOnTextChanged { text, _, _, _ ->
-                creditCardViewModel.updateCreditCard { oldCreditCard ->
-                    oldCreditCard.copy( cardNumbers = text.toString())
+                if (cardNumberRegex.containsMatchIn(cardNumbers.text)) {
+                    creditCardViewModel.updateCreditCard { oldCreditCard ->
+                        oldCreditCard.copy(cardNumbers = text.toString())
+                    }
+                }
+            }
+            cardExpirationDate.doOnTextChanged { text, _, _, _ ->
+                if (cardExpiryDateRegex.containsMatchIn(cardExpirationDate.text)) {
+                    creditCardViewModel.updateCreditCard { oldCreditCard ->
+                        oldCreditCard.copy(expDate = text.toString())
+                    }
                 }
             }
         }
@@ -67,7 +81,7 @@ class CreditCardFragment : Fragment() {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 creditCardViewModel.creditCard.collect { creditCard ->
                     creditCard?.let { updateUi(it) }
-                    creditCard?.let { qrCodeGenerator(it)}
+                    creditCard?.let { qrCodeGenerator(it) }
                 }
             }
         }
@@ -114,6 +128,6 @@ class CreditCardFragment : Fragment() {
             if (cardExpirationDate.text.toString() != creditCard.expDate.toString()) {
                 cardExpirationDate.setText(creditCard.expDate.toString())
             }
-         }
+        }
     }
 }

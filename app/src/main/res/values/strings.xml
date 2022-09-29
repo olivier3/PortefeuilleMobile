@@ -5,4 +5,6 @@
     <string name="card_number_hint">1233455465657676</string>
     <string name="card_expiry_date">09/23</string>
     <string name="add">add</string>
+    <string name="image_du_code_qr">Image du code qr</string>
+    <string name="bouton_pour_delete_la_carte">Bouton pour delete la carte</string>
 </resources>
