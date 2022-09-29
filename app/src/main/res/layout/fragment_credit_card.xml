@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,21 +15,21 @@
     <EditText
         android:id="@+id/card_owner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:hint="@string/card_owner_hint"
         android:inputType="text" />
 
     <EditText
         android:id="@+id/card_numbers"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:hint="@string/card_number_hint"
         android:inputType="number" />
 
     <EditText
         android:id="@+id/card_expiration_date"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:hint="@string/card_expiry_date"
         android:inputType="date" />
 
@@ -37,6 +38,12 @@
         android:id="@+id/card_digits"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/qr_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_qr_code" />
 
 
 </LinearLayout>

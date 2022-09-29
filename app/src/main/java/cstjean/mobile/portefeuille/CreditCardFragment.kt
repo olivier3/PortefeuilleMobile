@@ -1,6 +1,8 @@
 package cstjean.mobile.portefeuille
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,6 +17,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import com.google.zxing.BarcodeFormat
+import com.google.zxing.qrcode.QRCodeWriter
 import cstjean.mobile.portefeuille.creditcard.CreditCard
 import cstjean.mobile.portefeuille.databinding.FragmentCreditCardBinding
 import kotlinx.coroutines.launch
@@ -62,9 +68,37 @@ class CreditCardFragment : Fragment() {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 creditCardViewModel.creditCard.collect { creditCard ->
                     creditCard?.let { updateUi(it) }
+                    creditCard?.let { qrCodeGenerator(it)}
                 }
             }
         }
+    }
+
+    fun qrCodeGenerator(creditCard: CreditCard) {
+
+        val gson = Gson()
+
+        val content = CreditCardData(
+            creditCard.nom,
+            creditCard.cardNumbers,
+            creditCard.expDate
+        )
+
+        val jsonContent: String = gson.toJson(content)
+
+
+        val writer = QRCodeWriter()
+        val bitMatrix = writer.encode(jsonContent, BarcodeFormat.QR_CODE, 512, 512)
+        val width = bitMatrix.width
+        val height = bitMatrix.height
+        val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565)
+        for (x in 0 until width) {
+            for (y in 0 until height) {
+                bitmap.setPixel(x, y, if (bitMatrix.get(x, y)) Color.BLACK else Color.WHITE)
+            }
+        }
+
+        binding.qrCode.setImageBitmap(bitmap)
     }
 
     private fun updateUi(creditCard: CreditCard) {

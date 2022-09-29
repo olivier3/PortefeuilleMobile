@@ -12,20 +12,13 @@ import java.util.*
 
 class CreditCardsListViewModel : ViewModel() {
     private val creditCardRepository = CreditCardRepository.get()
-    val regex = "^.(4|5)[0-9]{3}-.*".toRegex()
-    private val randomValue = (0..1).random()
-    private val cardType = if (randomValue == 0) "visa" else "mastercard"
-    private lateinit var type: String
-    private val month = (1..12).random().toString()
-    private val year = (2000..2050).random().toString()
-
     private val _creditCards: MutableStateFlow<List<CreditCard>> = MutableStateFlow(emptyList())
     val creditCards: StateFlow<List<CreditCard>>
         get() = _creditCards.asStateFlow()
 
     init {
         viewModelScope.launch {
-            loadCreditCards()
+            // loadCreditCards()
 
             creditCardRepository.getCreditCards().collect {
                 _creditCards.value = it
@@ -45,6 +38,14 @@ class CreditCardsListViewModel : ViewModel() {
     }
 
     fun createCreditCard(faker: Faker): CreditCard {
+
+        val regex = "^.(4|5)[0-9]{3}-.*".toRegex()
+        val randomValue = (0..1).random()
+        val cardType = if (randomValue == 0) "visa" else "mastercard"
+        var type: String
+        val month = (1..12).random().toString()
+        val year = (2000..2050).random().toString()
+
         while (true) {
             type = faker.finance.creditCard(cardType)
             if (regex.containsMatchIn(type)) {
