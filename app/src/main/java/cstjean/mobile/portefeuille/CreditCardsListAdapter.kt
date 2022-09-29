@@ -4,12 +4,10 @@ import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import cstjean.mobile.portefeuille.creditcard.CreditCard
 import cstjean.mobile.portefeuille.databinding.ListItemCreditCardBinding
 import java.time.LocalDate
-import java.time.LocalDateTime
 import java.util.UUID
 import kotlin.math.abs
 
@@ -108,7 +106,7 @@ class CreditCardHolder(private val binding: ListItemCreditCardBinding) :
         }
     }
 
-    fun validateDate(creditCards: CreditCard): Boolean {
+    private fun validateDate(creditCards: CreditCard): Boolean {
         val regex = "^[0-9]+/[0-9]+".toRegex()
 
         if (regex.containsMatchIn(creditCards.expDate)) {

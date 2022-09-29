@@ -1,6 +1,5 @@
 package cstjean.mobile.portefeuille.creditcard
 
-import android.text.format.DateFormat
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.*

@@ -11,11 +11,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import cstjean.mobile.portefeuille.creditcard.CreditCard
 import cstjean.mobile.portefeuille.databinding.FragmentCardsListBinding
 import io.github.serpro69.kfaker.Faker
 import kotlinx.coroutines.launch
-import java.util.*
 
 class CreditCardsListFragment : Fragment() {
     private var _binding: FragmentCardsListBinding? = null
